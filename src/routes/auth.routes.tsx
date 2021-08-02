@@ -5,6 +5,7 @@ import Home from '../pages/Home'
 import { SignIn } from '../pages/SignIn'
 import AppointmentDetails from '../pages/AppointmentDetails'
 import AppointmentCreate from '../pages/AppointmentCreate'
+import Guilds from '../pages/Guilds';
 
 import { theme } from '../global/styles/theme';
 
@@ -29,6 +30,10 @@ export function AuthRoutes(){
             <Screen 
                 name="AppointmentCreate"    
                 component={AppointmentCreate}/>
+            
+            <Screen 
+                name="Guilds"    
+                component={Guilds}/>
         </Navigator>
     )
 }

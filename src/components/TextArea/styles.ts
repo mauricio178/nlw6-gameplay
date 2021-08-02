@@ -16,3 +16,5 @@ export const styles = StyleSheet.create({
         textAlign: 'center'
     },
 });
+
+//  1:38:00 STOPED <<

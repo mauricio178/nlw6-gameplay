@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     fontFamily: theme.fonts.title700,
     color: theme.colors.heading,    
     paddingHorizontal: 24,
-    marginTop: 36,
+    marginTop: 20,
   },
   label: {
     fontSize: 18,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
   },
   form: {
     paddingHorizontal: 24,
-    marginTop: 32
+    marginTop: 10
   },
   select: {
     flexDirection: 'row',
