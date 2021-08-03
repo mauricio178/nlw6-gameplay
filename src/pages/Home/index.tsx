@@ -8,6 +8,7 @@ import { ListHeader } from '../../components/ListHeader'
 import { Appointment } from '../../components/Appointment'
 import { ListDivider } from '../../components/ListDivider'
 import { useNavigation } from '@react-navigation/native'
+import BackgroundDefault from '../../components/BackgroundDefault'
 
 export default function Home() {
 
@@ -30,6 +31,66 @@ export default function Home() {
         },
         {
             id: '2',
+            guild: {
+                id: '1',
+                name: "S_D_K ( ¬_¬)",
+                icon: null,
+                owner: false
+            },
+            category: '1',
+            date: '22/06 às 20:48',
+            description: 'Jogatina de 10 Horas para alcançar mestre!'
+        },
+        {
+            id: '3',
+            guild: {
+                id: '1',
+                name: 'SID TOOTH [ ¨_¨]',
+                icon: null,
+                owner: true
+            },
+            category: '1',
+            date: '22/06 às 20:48',
+            description: 'É hoje que chegaremos ao nível mestre clã!'
+        },
+        {
+            id: '4',
+            guild: {
+                id: '1',
+                name: 'Lendários',
+                icon: null,
+                owner: false
+            },
+            category: '1',
+            date: '22/06 às 20:48',
+            description: 'É hoje que chegaremos ao nível mestre clã!'
+        },
+        {
+            id: '5',
+            guild: {
+                id: '1',
+                name: 'Lendários',
+                icon: null,
+                owner: true
+            },
+            category: '1',
+            date: '22/06 às 20:48',
+            description: 'É hoje que chegaremos ao nível mestre clã!'
+        },
+        {
+            id: '6',
+            guild: {
+                id: '1',
+                name: 'Lendários',
+                icon: null,
+                owner: true
+            },
+            category: '1',
+            date: '22/06 às 20:48',
+            description: 'É hoje que chegaremos ao nível mestre clã!'
+        },
+        {
+            id: '7',
             guild: {
                 id: '1',
                 name: 'Lendários',
@@ -55,36 +116,36 @@ export default function Home() {
     }
 
     return (
-        <View>
+        <BackgroundDefault>
             <View style={styles.header}>
                 <Profile />
-                <ButtonAdd onPress={handleAppointmentCreate}/>
+                <ButtonAdd onPress={handleAppointmentCreate} />
             </View>
-
+            
             <Text style={styles.title}>
                 Categorias
             </Text>
-            
+
+
             <CategorySelect categorySelected={category}
                 setCategory={handleCategorySelect}
             />
+                
 
-            <View style={styles.content}>
-                <ListHeader 
-                    title="Partidas Agendadas" 
-                    subtitle="Total 6" />
+            <ListHeader
+                title="Partidas Agendadas"
+                subtitle="Total 6" />
 
-                <FlatList
-                    data={appointment}
-                    keyExtractor={item => item.id}
-                    renderItem={({ item }) => (
-                        <Appointment data={item} onPress={handleAppointmentDetails}/>
-                    )}
-                    ItemSeparatorComponent={() => <ListDivider />}
-                    style={styles.matches}
-                    showsVerticalScrollIndicator={false}
-                />
-            </View>
-        </View>
+            <FlatList
+                data={appointment}
+                keyExtractor={item => item.id}
+                renderItem={({ item }) => (
+                    <Appointment data={item} onPress={handleAppointmentDetails} />
+                )}
+                ItemSeparatorComponent={() => <ListDivider />}
+                style={styles.matches}
+                showsVerticalScrollIndicator={false}
+            />
+        </BackgroundDefault>
     )
 }

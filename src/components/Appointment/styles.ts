@@ -56,5 +56,14 @@ export const styles = StyleSheet.create({
         marginLeft: 7,
         marginRight: 24
 
+    },
+    guildIconContainer: {
+        height: 68,
+        width: 60,
+        borderRadius: 8,
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginRight: 20
+
     }
 });

@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { StatusBar } from 'react-native'
 import { useFonts } from 'expo-font'
 import { Inter_400Regular, Inter_500Medium } from '@expo-google-fonts/inter'
 import { Rajdhani_500Medium, Rajdhani_700Bold } from '@expo-google-fonts/rajdhani'
 import AppLoading from 'expo-app-loading'
-// import { SignIn } from './src/pages/SignIn';
+import { SignIn } from './src/pages/SignIn';
 import BackgroundDefault from './src/components/BackgroundDefault';
-import {Routes} from './src/routes';
+import { Routes } from './src/routes';
+import { MarkerUnits } from 'react-native-svg';
+import { AuthProvider } from './src/hooks/auth'
 
 export default function App() {
 
@@ -28,7 +30,9 @@ export default function App() {
         backgroundColor="transparent"
         translucent
       />
-      <Routes/>
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </BackgroundDefault>
   );
 }

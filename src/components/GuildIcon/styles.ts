@@ -3,11 +3,11 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({    
     image: {
-        width: 60,
+        width: 58,
         marginLeft: 4,
         marginBottom: 4,
         marginTop: 4,
-        height: 60,
+        height: 65,
         borderRadius: 4,
         marginRight: 4
     }

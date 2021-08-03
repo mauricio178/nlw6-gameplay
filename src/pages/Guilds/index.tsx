@@ -25,6 +25,42 @@ export default function Guilds({ handleGuildSelect }: Props) {
             name: 'Slayer Darkness',
             icon: null,
             owner: true
+        },
+        {
+            id: '3',
+            name: 'Lendários',
+            icon: null,
+            owner: true
+        },
+        {
+            id: '4',
+            name: 'Slayer Darkness',
+            icon: null,
+            owner: true
+        },
+        {
+            id: '5',
+            name: 'Lendários',
+            icon: null,
+            owner: true
+        },
+        {
+            id: '6',
+            name: 'Slayer Darkness',
+            icon: null,
+            owner: true
+        },
+        {
+            id: '7',
+            name: 'Lendários',
+            icon: null,
+            owner: true
+        },
+        {
+            id: '8',
+            name: 'Slayer Darkness',
+            icon: null,
+            owner: true
         }
     ]
 
@@ -41,7 +77,9 @@ export default function Guilds({ handleGuildSelect }: Props) {
                     />
                 )}
                 // showsVerticalScrollIndicator={false}
-                ItemSeparatorComponent={()=> <ListDivider/>}
+                ItemSeparatorComponent={()=> <ListDivider isCenter/>}
+                ListHeaderComponent={() => <ListDivider isCenter/>}
+                contentContainerStyle={{paddingBottom: 68, paddingTop: 104}}
             />
         </View>
     )

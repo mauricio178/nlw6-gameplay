@@ -89,7 +89,8 @@ export default function AppointmentDetails() {
                 renderItem={({ item }) => (
                     <Member data={item} />
                 )}
-                ItemSeparatorComponent={() => <ListDivider />}
+                ItemSeparatorComponent={() => <ListDivider />
+            }
             />
 
             <View style={styles.footer}>

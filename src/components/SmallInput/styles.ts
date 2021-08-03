@@ -9,9 +9,12 @@ export const styles = StyleSheet.create({
         height: 48,
         borderRadius: 8,
         backgroundColor: theme.colors.secondary40,
-        fontFamily: theme.fonts.text400,
+        fontFamily: theme.fonts.text500,
+        color: theme.colors.heading,
         fontSize: 13,
         marginRight: 4,
-        textAlign: 'center'
+        textAlign: 'center',
+        borderWidth: 1,
+        borderColor: theme.colors.secondary50
     },
 });
