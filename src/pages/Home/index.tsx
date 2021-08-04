@@ -30,8 +30,8 @@ export default function Home() {
         categoryId === category ? setCategory('') : setCategory(categoryId)
     }
 
-    function handleAppointmentDetails() {
-        navigation.navigate('AppointmentDetails')
+    function handleAppointmentDetails(guildSelected: AppointmentProps) {
+        navigation.navigate('AppointmentDetails', { guildSelected })
     }
 
     function handleAppointmentCreate() {
@@ -83,7 +83,9 @@ export default function Home() {
                             data={appointments}
                             keyExtractor={item => item.id}
                             renderItem={({ item }) => (
-                                <Appointment data={item} onPress={handleAppointmentDetails} />
+                                <Appointment 
+                                    data={item} 
+                                    onPress={() => handleAppointmentDetails(item)} />
                             )}
                             ItemSeparatorComponent={() => <ListDivider />}
                             style={styles.matches}
@@ -94,6 +96,3 @@ export default function Home() {
         </BackgroundDefault>
     )
 }
-
-
-// Stop in > 57:30 > Aula 4
