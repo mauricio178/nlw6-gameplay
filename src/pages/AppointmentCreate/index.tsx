@@ -67,7 +67,7 @@ export default function AppointmentCreate() {
                                 {
                                     // guild.icon 
                                     // ?
-                                    <GuildIcon /> 
+                                    <GuildIcon guildId={guild.id} iconId={guild.icon}/> 
                                     // : 
                                     // <View style={styles.image} />
                                 }

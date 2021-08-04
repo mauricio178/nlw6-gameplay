@@ -10,7 +10,7 @@ type Props = TouchableOpacityProps & {
     data: GuildProps
 }
 
-export default function Guilds({ data, ...rest }: Props) {
+export default function Guild({ data, ...rest }: Props) {
 
     return (
         <TouchableOpacity style={styles.container}
@@ -18,7 +18,7 @@ export default function Guilds({ data, ...rest }: Props) {
             {...rest}
         >
 
-            <GuildIcon />
+            <GuildIcon guildId={data.id} iconId={data.icon}/>
 
             <View style={styles.content}>
                 <View>
