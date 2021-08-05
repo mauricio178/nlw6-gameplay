@@ -1,4 +1,4 @@
-// # REACT, REACT NATIVE, STYLES
+// # REACT, REACT NATIVE, UTILS
 import React, { useEffect, useState } from 'react'
 import { ImageBackground, Text, View, FlatList, Alert, Share, Platform } from 'react-native'
 import { BorderlessButton } from 'react-native-gesture-handler'
@@ -7,6 +7,7 @@ import { Fontisto } from '@expo/vector-icons'
 import { styles } from './styles'
 import { theme } from '../../global/styles/theme'
 import { api } from '../../services/api'
+import * as Linking from 'expo-linking'
 
 // # COMPONENTS
 import BannerImg from '../../assets/banner.png'
@@ -25,10 +26,10 @@ type Params = {
 }
 
 type GuildWidget = {
-    id: string
-    name: string
-    instant_invite: string
-    members: MemberProps[]
+    id: string;
+    name: string;
+    instant_invite: string;
+    members: MemberProps[];
 }
 
 export default function AppointmentDetails() {
@@ -40,10 +41,11 @@ export default function AppointmentDetails() {
     const routes = useRoute()
     const { guildSelected } = routes.params as Params
 
-    async function fetchGuildInfo() {
+    async function fetchGuildWidget() {
         try {
             const response = await api.get(`/guilds/${guildSelected.guild.id}/widget.json`)
             setWidget(response.data)
+            console.log(response.data)
 
         } catch {
             Alert.alert('Você precisa ser Dono de um servidor e ativar o "Widget')
@@ -51,27 +53,30 @@ export default function AppointmentDetails() {
             setLoading(false)
         }
     }
-    
-    function handleShareInvite(){
-        const message = Platform.OS === 'ios' ? 
-        `Junte-se a ${guildSelected.guild.name}` 
-        : widget.instant_invite
 
+    function handleShareInvitation() {
+        const message = `Junte-se a ${guildSelected.guild.name}`
+    
         Share.share({
-            message,
-            url: widget.instant_invite
-        })
+          message,
+          url: widget.instant_invite
+        });    
+      }
+    
+
+    function handleOpenGuild() {
+        Linking.openURL(widget.instant_invite)
     }
 
     useEffect(() => {
-        fetchGuildInfo()
+        fetchGuildWidget()
     }, [])
 
     return (
         <BackgroundDefault>
             <Header title="Detalhes" action={
                 guildSelected.guild.owner &&
-                <BorderlessButton onPress={handleShareInvite}>
+                <BorderlessButton onPress={handleShareInvitation}>
                     <Fontisto name="share" color={theme.colors.primary} size={20} />
                 </BorderlessButton>
             } />
@@ -88,9 +93,12 @@ export default function AppointmentDetails() {
                 </View>
             </ImageBackground>
 
-            { loading ? <Load/> :
+            {loading ? <Load /> :
                 <>
-                    <ListHeader title="Jogadores" subtitle={`Total ${widget.members.length}`} />
+                    <ListHeader
+                        title="Jogadores"
+                        subtitle={`Total ${widget.members.length}`}
+                    />
 
                     <FlatList
                         style={styles.members}
@@ -104,8 +112,9 @@ export default function AppointmentDetails() {
                     />
                 </>
             }
+
             <View style={styles.footer}>
-                <ButtonIcon title="Entrar na partida" />
+                <ButtonIcon onPress={handleOpenGuild} title="Entrar na partida" />
             </View>
         </BackgroundDefault>
     )

@@ -52,5 +52,3 @@ export function SignIn() {
         </BackgroundDefault>
     )
 }
-
-// STOPED 13:00 - AULA 5

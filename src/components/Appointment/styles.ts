@@ -16,7 +16,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginBottom: 12,
+        marginBottom: 24,
     },
     title: {
         fontFamily: theme.fonts.title700,
@@ -37,12 +37,11 @@ export const styles = StyleSheet.create({
     },
     dateInfo: {
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     playerInfo:{
         flexDirection: 'row',
-        alignItems: 'center'
-
+        alignItems: 'center',
     },
     date: {
         fontFamily: theme.fonts.text500,
@@ -55,7 +54,7 @@ export const styles = StyleSheet.create({
         fontSize: 13,
         marginLeft: 7,
         marginRight: 24
-
+        
     },
     guildIconContainer: {
         height: 68,
@@ -64,6 +63,10 @@ export const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginRight: 20
-
+        
+    },
+    deleteButton: {
+        color: theme.colors.primary,
+        marginLeft: 24,
     }
 });
